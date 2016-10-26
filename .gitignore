@@ -1,0 +1,5 @@
+*.secret
+*.lock
+.idea
+tmp
+vendor
