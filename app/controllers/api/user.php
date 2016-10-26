@@ -82,10 +82,31 @@ class User extends Controller{
 
         echo $idTokenString;
 
+        if (!$oauth_credentials = getOAuthCredentialsFile()) {
+            echo missingOAuth2CredentialsWarning();
+            return;
+        }
+        /************************************************
+         * NOTICE:
+         * The redirect URI is to the current page, e.g:
+         * http://localhost:8080/idtoken.php
+         ************************************************/
+        $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+        $client = new \Google_Client();
+        $client->setAuthConfig($oauth_credentials);
+        $client->setRedirectUri($redirect_uri);
+        //$client->setScopes('email');
 
-        $verifier = new Google_AccessToken_Verify();
+        $client->setAccessToken($idTokenString);
 
-        $idToken = $verifier->verifyIdToken($idTokenString);
+        if ($client->getAccessToken()) {
+            $token_data = $client->verifyIdToken();
+        }
+
+
+        //$verifier = new Google_AccessToken_Verify();
+
+        //$idToken = $verifier->verifyIdToken($idTokenString);
 
         /*$outArr = array(
             "guid"=> $idToken->,
@@ -103,7 +124,7 @@ class User extends Controller{
             "retMsg"=> "SUCCESS",
         );*/
 
-        $this->OutputJson(0, "success", $idToken);
+        $this->OutputJson(0, "success", $token_data);
 
 
 
