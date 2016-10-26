@@ -91,8 +91,6 @@ class User extends Controller{
             exit(0);
         }
 
-        getOAuthCredentialsFile();
-
         /************************************************
          * NOTICE:
          * The redirect URI is to the current page, e.g:
