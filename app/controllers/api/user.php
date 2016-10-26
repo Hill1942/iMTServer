@@ -80,14 +80,14 @@ class User extends Controller{
 
         $idTokenString = $_REQUEST['token'];
 
-        echo $idTokenString;
+        //echo $idTokenString;
 
         $oauth_credentials = __DIR__ . '/../../../oauth-credentials.json';
 
-        echo $oauth_credentials;
+        //echo $oauth_credentials;
 
         if (!file_exists($oauth_credentials)) {
-            //echo "<br>no file";
+            echo "false";
             exit(0);
         }
 
