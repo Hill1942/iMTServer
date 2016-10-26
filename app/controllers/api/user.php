@@ -76,46 +76,20 @@ class User extends Controller{
 
     public function login() {
 
-        //echo "kk";
-
         $idTokenString = $_REQUEST['token'];
-
-        //echo $idTokenString;
-
         $oauth_credentials = __DIR__ . '/../../../oauth-credentials.json';
-
-        //echo $oauth_credentials;
 
         if (!file_exists($oauth_credentials)) {
             echo "false";
             exit(0);
         }
 
-        /************************************************
-         * NOTICE:
-         * The redirect URI is to the current page, e.g:
-         * http://localhost:8080/idtoken.php
-         ************************************************/
         $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
         $client = new \Google_Client();
-        //echo "<br>989";
-
         $client->setAuthConfig($oauth_credentials);
-
-       // echo "<br>14989";
-
         $client->setRedirectUri($redirect_uri);
         $client->setScopes('email');
-
-        //echo "<br>63fdg";
-
         $client->setAccessToken($idTokenString);
-
-        //echo "<br>9hgo";
-
-        //echo "<br>ooo: " . json_encode($client->getAccessToken());
-
-
         $token_data = $client->verifyIdToken();
 
         if ($token_data) {
@@ -140,17 +114,11 @@ class User extends Controller{
         } else {
             echo "false";
         }
-
-
-
-
-
-
-
-
-
     }
 
+    public function logout() {
+        echo "server logout success";
+    }
      //获取sValidKey
     private function getSValidKey($params) {
         $sParams = '';
