@@ -87,7 +87,7 @@ class User extends Controller{
         echo $oauth_credentials;
 
         if (!file_exists($oauth_credentials)) {
-            echo "<br>no file";
+            //echo "<br>no file";
             exit(0);
         }
 
@@ -98,27 +98,45 @@ class User extends Controller{
          ************************************************/
         $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
         $client = new \Google_Client();
-        echo "<br>989";
+        //echo "<br>989";
 
         $client->setAuthConfig($oauth_credentials);
 
-        echo "<br>14989";
+       // echo "<br>14989";
 
         $client->setRedirectUri($redirect_uri);
         $client->setScopes('email');
 
-        echo "<br>63fdg";
+        //echo "<br>63fdg";
 
         $client->setAccessToken($idTokenString);
 
-        echo "<br>9hgo";
+        //echo "<br>9hgo";
 
-        echo "<br>ooo: " . json_encode($client->getAccessToken());
+        //echo "<br>ooo: " . json_encode($client->getAccessToken());
 
 
         $token_data = $client->verifyIdToken();
 
-        $this->OutputJson(0, "success", $token_data);
+        if ($token_data) {
+            $outArr = array(
+                       "guid"=> "",
+                       "guidToken"=> "2b9b8ab9b6852b0e41002f0263135d03",
+                       "guidTokenExpire"=> $token_data["exp"],
+                       "guidUserBirthday"=> "",
+                       "guidUserNick"=> $token_data["name"],
+                       "guidUserPortrait"=> $token_data["picture"],
+                       "guidUserSex"=> 1,
+                       "openId"=> md5(date("Y-m-d H:i:s") . $token_data["name"]),
+                       "retCode"=> 1,
+                       "retExtraJson"=> "{}",
+                       "retMsg"=> "SUCCESS",
+                   );
+
+            echo json_encode($outArr);
+        }
+
+        //$this->OutputJson(0, "success", $token_data);
 
         if ($client->getAccessToken()) {
             //echo "<br>9hgo" . $
