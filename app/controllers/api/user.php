@@ -113,10 +113,18 @@ class User extends Controller{
 
         echo "<br>9hgo";
 
-        if ($client->getAccessToken()) {
-            $token_data = $client->verifyIdToken();
+        echo "<br>ooo: " . $client->getAccessToken();
 
-            $this->OutputJson(0, "success", $token_data);
+
+        $token_data = $client->verifyIdToken();
+
+        $this->OutputJson(0, "success", $token_data);
+
+        if ($client->getAccessToken()) {
+            //echo "<br>9hgo" . $
+            //$token_data = $client->verifyIdToken();
+
+            //$this->OutputJson(0, "success", $token_data);
         }
 
 
