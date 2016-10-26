@@ -91,6 +91,8 @@ class User extends Controller{
             exit(0);
         }
 
+        getOAuthCredentialsFile();
+
         /************************************************
          * NOTICE:
          * The redirect URI is to the current page, e.g:
@@ -98,11 +100,16 @@ class User extends Controller{
          ************************************************/
         $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
         $client = new \Google_Client();
-        echo "kk";
-        echo $client;
+        echo "<br>989";
+
         $client->setAuthConfig($oauth_credentials);
+
+        echo "<br>14989";
+
         $client->setRedirectUri($redirect_uri);
         //$client->setScopes('email');
+
+        echo "<br>63fdg";
 
         $client->setAccessToken($idTokenString);
 
