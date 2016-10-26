@@ -82,7 +82,7 @@ class User extends Controller{
 
         echo $idTokenString;
 
-        $oauth_creds = __DIR__ . '/../../oauth-credentials.json';
+        $oauth_creds = __DIR__ . '/../../../oauth-credentials.json';
 
         echo $oauth_creds;
 
