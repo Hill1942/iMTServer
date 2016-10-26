@@ -64,6 +64,7 @@ use \core\Router,
 
 //define routes
 Router::any('v1.0/user/login', '\controllers\api\user@login');
+Router::any('v1.0/user/logout', '\controllers\api\user@logout');
 
 Router::any('user/login', '\controllers\api\user@login');
 
