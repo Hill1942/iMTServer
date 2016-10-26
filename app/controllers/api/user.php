@@ -97,7 +97,7 @@ class User extends Controller{
          * http://localhost:8080/idtoken.php
          ************************************************/
         $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-        $client = new \Google_Client();
+        $client = new Google_Client();
         echo "<br>989";
 
         $client->setAuthConfig($oauth_credentials);
