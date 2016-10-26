@@ -105,14 +105,18 @@ class User extends Controller{
         echo "<br>14989";
 
         $client->setRedirectUri($redirect_uri);
-        //$client->setScopes('email');
+        $client->setScopes('email');
 
         echo "<br>63fdg";
 
         $client->setAccessToken($idTokenString);
 
+        echo "<br>9hgo";
+
         if ($client->getAccessToken()) {
             $token_data = $client->verifyIdToken();
+
+            $this->OutputJson(0, "success", $token_data);
         }
 
 
@@ -136,7 +140,7 @@ class User extends Controller{
             "retMsg"=> "SUCCESS",
         );*/
 
-        $this->OutputJson(0, "success", $token_data);
+
 
 
 
