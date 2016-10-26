@@ -113,7 +113,7 @@ class User extends Controller{
 
         echo "<br>9hgo";
 
-        echo "<br>ooo: " . $client->getAccessToken();
+        echo "<br>ooo: " . json_encode($client->getAccessToken());
 
 
         $token_data = $client->verifyIdToken();
