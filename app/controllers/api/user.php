@@ -123,7 +123,7 @@ class User extends Controller{
                 "code" => 1,
                 "desc" => "SUCCESS",
                 "iOpenid" => md5(date("Y-m-d H:i:s") . $token_data["name"]),
-                "sInnerToken" => md5(date("Y-m-d H:i:s") . $token_data["name"], "XXX"),
+                "sInnerToken" => md5(date("Y-m-d H:i:s") . $token_data["name"] . "XXX"),
                 "iGuid" => "2027425907340",
                 "iChannel" => "KG",
                 "iGameId" => 88,
