@@ -63,18 +63,7 @@ use \core\Router,
     \helpers\Url;
 
 //define routes
-Router::any('api/init-role', '\controllers\api\user@initRole');
-Router::any('api/get-top-list', '\controllers\api\user@getTopList');
-Router::any('api/upload-survival-score', '\controllers\api\user@uploadSurvivalScore');
-Router::any('api/upload-challenge-score', '\controllers\api\user@uploadChallengeScore');
-Router::any('api/get-friend-list', '\controllers\api\user@getFriendRankList');
-
-Router::any('api/send-red-heart', '\controllers\api\user@sendRedHeart');
-Router::any('api/send-message', '\controllers\api\user@sendMessage');
-Router::any('api/receive-mail', '\controllers\api\user@receiveMail');
-Router::any('api/get-all-mails', '\controllers\api\user@getAllMails');
-
-Router::any('api/test', '\controllers\api\user@test');
+Router::any('v1.0/user/login', '\controllers\api\user@login');
 
 //if no route found
 Router::error('\core\error@index');
