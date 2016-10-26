@@ -120,18 +120,21 @@ class User extends Controller{
 
         if ($token_data) {
             $outArr = array(
-                       "guid"=> "",
-                       "guidToken"=> "2b9b8ab9b6852b0e41002f0263135d03",
-                       "guidTokenExpire"=> $token_data["exp"],
-                       "guidUserBirthday"=> "",
-                       "guidUserNick"=> $token_data["name"],
-                       "guidUserPortrait"=> $token_data["picture"],
-                       "guidUserSex"=> 1,
-                       "openId"=> md5(date("Y-m-d H:i:s") . $token_data["name"]),
-                       "retCode"=> 1,
-                       "retExtraJson"=> "{}",
-                       "retMsg"=> "SUCCESS",
-                   );
+                "code" => 1,
+                "desc" => "SUCCESS",
+                "iOpenid" => md5(date("Y-m-d H:i:s") . $token_data["name"]),
+                "sInnerToken" => md5(date("Y-m-d H:i:s") . $token_data["name"], "XXX"),
+                "iGuid" => "2027425907340",
+                "iChannel" => "KG",
+                "iGameId" => 88,
+                "sChannelId" => "123",
+                "iExpireTime" => $token_data["exp"],
+                "sUserName" => $token_data["name"],
+                "sBirthdate" => "",
+                "iGender" => 1,
+                "sPictureUrl" => $token_data["picture"],
+                "firstLoginTag" => 0
+            );
 
             echo json_encode($outArr);
         } else {
