@@ -76,7 +76,7 @@ class User extends Controller{
 
     public function login() {
 
-        echo "kk";
+        //echo "kk";
 
         $idTokenString = $_REQUEST['token'];
 
