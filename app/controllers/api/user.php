@@ -80,8 +80,10 @@ class User extends Controller{
 
         $idTokenString = $_REQUEST['token'];
 
+        echo $idTokenString;
 
-        $verifier = new \Google_AccessToken_Verify();
+
+        $verifier = new Google_AccessToken_Verify();
 
         $idToken = $verifier->verifyIdToken($idTokenString);
 
