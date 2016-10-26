@@ -82,10 +82,15 @@ class User extends Controller{
 
         echo $idTokenString;
 
-        if (!$oauth_credentials = getOAuthCredentialsFile()) {
-            echo missingOAuth2CredentialsWarning();
-            return;
+        $oauth_creds = __DIR__ . '/../../oauth-credentials.json';
+
+        echo $oauth_creds;
+
+        if (!file_exists($oauth_creds)) {
+            echo "<br>no file";
+            exit(0);
         }
+
         /************************************************
          * NOTICE:
          * The redirect URI is to the current page, e.g:
