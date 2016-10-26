@@ -134,37 +134,11 @@ class User extends Controller{
                    );
 
             echo json_encode($outArr);
-        }
-
-        //$this->OutputJson(0, "success", $token_data);
-
-        if ($client->getAccessToken()) {
-            //echo "<br>9hgo" . $
-            //$token_data = $client->verifyIdToken();
-
-            //$this->OutputJson(0, "success", $token_data);
+        } else {
+            echo "false";
         }
 
 
-        //$verifier = new Google_AccessToken_Verify();
-
-        //$idToken = $verifier->verifyIdToken($idTokenString);
-
-        /*$outArr = array(
-            "guid"=> $idToken->,
-            "guidToken"=> "2b9b8ab9b6852b0e41002f0263135d03",
-            "guidTokenExpire"=> 1482495622,
-            "guidUserBirthday"=> "",
-            "guidUserNick"=> "Yang Kaidi",
-            "guidUserPortrait"=> "https=>//fbcdn-profile-a.akamaihd.net/hprofile-ak-xft1/v/t1.0-1/p50x50/13001266_853461958113804_818103792221861027_n.jpg?oh=059b00090df95a981d9cf9f0596620f0&oe=58AD6395&__gda__=1487469897_912cb2ed16e3d7f2052b4d4c44641dce",
-            "guidUserSex"=> 1,
-            "openId"=> "67108864000900",
-            "imsdkRetCode"=> 1,
-            "imsdkRetMsg"=> "",
-            "retCode"=> 1,
-            "retExtraJson"=> "{}",
-            "retMsg"=> "SUCCESS",
-        );*/
 
 
 
