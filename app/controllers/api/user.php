@@ -98,6 +98,8 @@ class User extends Controller{
          ************************************************/
         $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
         $client = new \Google_Client();
+        echo "kk";
+        echo $client;
         $client->setAuthConfig($oauth_credentials);
         $client->setRedirectUri($redirect_uri);
         //$client->setScopes('email');
